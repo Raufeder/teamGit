@@ -1,5 +1,28 @@
+
+
+.Comp {
+  box-shadow:
+  0 2px 5.1px rgba(0, 0, 0, 0.125),
+  0 6.7px 17.2px rgba(0, 0, 0, 0.185),
+  0 30px 77px rgba(0, 0, 0, 0.31)
+;
+background-color:white;
+padding: 50px;
+margin-top: 30px;
+
+}
+
+h1{
+  color:white;
+  text-shadow: 3px 5px 2px #474747;
+}
+
+
 .App {
   text-align: center;
+  padding: 20px;
+  background: rgb(71,58,180);
+  background: linear-gradient(220deg, rgba(71,58,180,1) 0%, rgba(99,176,119,1) 50%, rgba(209,255,249,1) 100%);
 }
 
 .App-logo {

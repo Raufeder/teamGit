@@ -1,11 +1,22 @@
 img {
+  box-shadow:
+  0 0.3px 2.2px rgba(0, 0, 0, 0.125),
+  0 0.9px 7.4px rgba(0, 0, 0, 0.185),
+  0 4px 33px rgba(0, 0, 0, 0.31)
+;
   width: 500px;
   height: 500px;
 }
 
+h4{
+  padding:20px;
+  font-size:16px;
+}
+
 #finalFrontier {
   position: relative;
-  margin-left: 30%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 70px;
   width: 500px;
   height: 500px;

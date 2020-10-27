@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"; 
+import {Table, Button} from 'reactstrap';
+import '../styles/Zomato.css'
 
-const baseURL = 'https://developers.zomato.com/api/v2.1/';
+const baseURL = 'https://developers.zomato.com/api/v2.1';
 const key = '0c3eace9a13ded50a00e7959b0b360ee';
 
 
@@ -35,6 +37,7 @@ const [results, setResults] = useState([])
 
 
     const restaurantInfo = () => {
+        if(results){
         return results.map( (results, index) => {
           return(
             <tr>
@@ -45,6 +48,7 @@ const [results, setResults] = useState([])
             </tr>
           )
         })
+    }
       };
 
 
@@ -55,16 +59,29 @@ const [results, setResults] = useState([])
 
     useEffect(() => {
         fetchResults()
-    }, [])
+    }, [props.geoCoords])
 
 
     return (
         <>
-        <p>Zomato</p>
         <form onSubmit={(e) => handleSubmit(e)}>
             <span>Check out restaurants in the area!</span>
-            {restaurantInfo()}
-            <button className="submit">Take a gander!</button>
+           
+            <Table dark>
+                <thead>
+                    <tr>
+                        <th>Restaurant</th>
+                        <th>Address</th>
+                        <th>Type</th>
+                        <th>Avg Cost $ (2 people)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {restaurantInfo()}
+                </tbody>
+            </Table>
+           
+            <Button color="success" className="submit">Click To Git Food</Button>
         </form>
         </>
     )
