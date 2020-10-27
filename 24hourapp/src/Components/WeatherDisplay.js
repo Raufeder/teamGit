@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 let baseURL = "https://api.openweathermap.org/data/2.5/weather";
 let key ="f9da721e37175547f37fd7af327f89dd"
@@ -47,11 +47,11 @@ const fetchImperial = (event) => {
 }
 
     return (
-        <div>
-            <h1>Weather</h1>
-            <h2>Current Weather In Your Location</h2>
-            {temp} degrees {unit}
-            <Button color="warning" onClick={(e) => fetchImperial(e)}>Toggle Units</Button>
+        <div id="weatherDiv">
+            <h1>Weather In Your Location</h1>
+            <p>Currently, it is {temp} degrees {unit}.</p>
+            <br />
+            <Button color="info" onClick={(e) => fetchImperial(e)}>Toggle Units</Button>
         </div>
     );
 };
