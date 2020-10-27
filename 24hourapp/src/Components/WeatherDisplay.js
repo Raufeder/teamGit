@@ -1,6 +1,6 @@
 import {Button} from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css"
 import {useState, useEffect} from 'react';
+import '../styles/Weather.css'
 
 const WeatherDisplay = (props) => {
     const [myData, setMyData] = useState({});
@@ -37,6 +37,7 @@ const WeatherDisplay = (props) => {
         if(myData.main){
             return (
                 <>
+                      
                     <span>Temp: {temperatureDisplayFormat(myData.main.temp)}</span>
                     <br />
                     <span>Pressure: {myData.main.pressure}millibar</span>
@@ -62,7 +63,7 @@ const WeatherDisplay = (props) => {
     return (
         <>
             {showWeatherData()}
-            <Button color="success" size="xl" onClick={changeUnits}>Change Units!</Button>
+            <Button className="button" color="success" size="xl" onClick={changeUnits}>Change Units!</Button>
         </>
     );
 };
