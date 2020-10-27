@@ -1,15 +1,22 @@
 import './App.css';
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import NasaDisplay from "./Components/NasaDisplay";
 import WeatherDisplay from "./Components/WeatherDisplay";
 import ZomatoDisplay from "./Components/ZomatoDisplay";
 
 function App() {
-  const coords = {};
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition((pos) => { coords.lat = pos.coords.latitude; coords.lon = pos.coords.longitude; console.log(coords);}, () => { console.log("error");});
-  }
+  const [coords, setCoords] = useState({});
+
+  useEffect( () => {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        (pos) => { 
+          setCoords({ lat: pos.coords.latitude, lon: pos.coords.longitude }); 
+        }, 
+        () => { console.log("error"); });
+    }
+  }, [])
 
   return (
     <div className="App">
@@ -18,7 +25,6 @@ function App() {
       <WeatherDisplay geoCoords={coords} />
       <hr />
       <ZomatoDisplay geoCoords={coords} />
-      <hr />
     </div>
   );
 };
