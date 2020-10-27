@@ -60,7 +60,6 @@ const NasaDisplay = (props) => {
         <>
             <div id="finalFrontier">
                 <img src={URL} alt={ altMessage } />
-                <br/>
                 <h4>{locationAndDate}</h4>
             </div>
         
