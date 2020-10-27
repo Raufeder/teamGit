@@ -14,14 +14,16 @@ const WeatherDisplay = (props) => {
     const [unit, setUnit] = useState('Celsius')
     const [celsius, setCelsius] = useState(true)
 
+   useEffect(() => {
     fetch(urlMetric)
-        .then(res => res.json())
-        .then((data) => {
-            console.log(data)
-            setTemp(data.main.temp)
-            setUnit('Celsius')
-            setCelsius(true)
-        })
+    .then(res => res.json())
+    .then((data) => {
+        console.log(data)
+        setTemp(data.main ? data.main.temp : 0)
+        setUnit('Celsius')
+        setCelsius(true)
+    })
+  }, []) 
 
 const fetchImperial = (event) => {
     let urlImperial = `${baseURL}?lon=${props.geoCoords.lon}&lat=${props.geoCoords.lat}&units=${imperial}&appid=${key}`
@@ -34,8 +36,14 @@ const fetchImperial = (event) => {
         setTemp(data.main.temp)
         setUnit('Fahrenheit')
         setCelsius(false)
-    }) : setCelsius(true)
-
+    }) : fetch(urlMetric)
+    .then(res => res.json())
+    .then((data) => {
+        console.log(data)
+        setTemp(data.main.temp)
+        setUnit('Celsius')
+        setCelsius(true)
+    })
 }
 
     return (
