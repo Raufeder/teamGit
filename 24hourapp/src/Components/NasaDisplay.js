@@ -41,7 +41,7 @@ const NasaDisplay = (props) => {
             
             setAltMessage(`Satellite image of ${latitude} degrees latitude at ${longitude} degrees longitude`);
 
-            setLocationAndDate(`Satellite image of ${latitude} degrees latitude at ${longitude} degrees longitude for ${baseDate}`);
+            setLocationAndDate(`Satellite image of ${latitude.toFixed(4)} degrees latitude at ${longitude.toFixed(4)} degrees longitude for ${baseDate}`);
         };
 
         console.log(NASA_base_endpoint);
@@ -60,7 +60,7 @@ const NasaDisplay = (props) => {
         <>
             <div id="finalFrontier">
                 <img src={URL} alt={ altMessage } />
-                <h4>{locationAndDate}</h4>
+                <h3>{locationAndDate}</h3>
             </div>
         
         </>
