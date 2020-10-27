@@ -1,0 +1,13 @@
+img {
+  width: 500px;
+  height: 500px;
+}
+
+#finalFrontier {
+  position: relative;
+  margin-left: 30%;
+  margin-bottom: 70px;
+  width: 500px;
+  height: 500px;
+  background-image: url("https://asc-csa.gc.ca/images/recherche/tiles/44dc1f76-45d8-41a1-ba84-170dc56fc47b.jpg");
+}
